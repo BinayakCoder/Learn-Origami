@@ -1,18 +1,34 @@
-<html>
+<html class="themeLight">
     <head>
         <link href="https://fonts.googleapis.com/css2?family=Mali:wght@500&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet">
         <title>
             Origami
         </title>
         <link rel="icon" href="scissor-removebg-preview%20(2).jpg" type="image/icon type">
         <style>
+            .themeLight {
+    --color-primary: #ff0000;
+    --color-secondary: #eeeeee;
+    --color-accent: #00ff00;
+    --font-color: #111111;
+    --bgicon-color: rgba(0,0,0,0.2)
+  }
+            .themeDark {
+    --color-primary: aqua;
+    --color-secondary: #111111;
+    --color-accent: fuchsia;
+    --font-color: #eeeeee;
+    --bgicon-color: rgba(255,255,255,0.3)
+  }
             html {
                 scroll-behavior: smooth;
             }
             body {
-    background-color: #111111;
+    background-color: var(--color-secondary);
 }
 .menu {
     background: rgba(0,0,0,0);
@@ -33,22 +49,22 @@
 h1 {
     font-family: 'Mali', cursive;
     font-size: 120px;
-    color: #EEE;
+    color: var(--font-color);
 }
 p {
     font-size: 48px;
     font-family: 'Satisfy', cursive;
-    color: #EEE;
+    color: var(--font-color);
 }
             a {
                 color: orangered;
             }
             .rm {
-                color: fuchsia;
+                color: var(--color-accent);
             }
             .start {
                 font-size: 64px;
-                color: aqua;
+                color: var(--color-primary);
             }
             img {
                 width: 500px;
@@ -62,11 +78,77 @@ p {
             .contact {
                 font-family: 'Roboto Mono', monospace;
                 font-size: 36px;
-                color: #EEE;
+                color: var(--font-color);
                 text-decoration-line: none;
+            }
+            .material-icons-outlined {
+                float: right;
+                font-family: 'Material Icons Outlined';
+                font-weight: normal;
+                font-style: normal;
+                font-size: 28px;
+                display: inline-block;
+                line-height: 1;
+                text-transform: none;
+                letter-spacing: normal;
+                word-wrap: normal;
+                white-space: nowrap;
+                direction: ltr;
+                color: var(--font-color);
+                cursor: pointer;
+                height: 36px;
+                width: 36px;
+                border-radius: 100px;
+                text-align: center;
+                vertical-align: middle;
+                align-content: center;
+                justify-content: center;
+            }
+            .material-icons-outlined:hover {
+                background-color: var(--bgicon-color)
+            }
+            #darkIcon {
+                margin-right: -36px
+            }
+            #lightIcon {
+                visibility: hidden;
             }
         </style>
     </head>
+    <script>
+        (function(w, d) 
+         { w.CollectId = "61c5d2a5b104f43d8bab2372"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); }
+        )(window, document);
+        //Set given theme
+        function setTheme(themeName) {
+            localStorage.setItem('theme', themeName);
+            document.documentElement.className = themeName;
+        }
+        //Change theme
+        function changeTheme() {
+            if (localStorage.getItem('theme') === 'themeDark') {
+                setTheme('themeLight');
+                document.getElementById("lightIcon").style.visibility = "hidden";
+                document.getElementById("darkIcon").style.visibility = "visible";
+            } else {
+                setTheme('themeDark');
+                document.getElementById("darkIcon").style.visibility = "hidden";
+                document.getElementById("lightIcon").style.visibility = "visible";
+            }
+        }
+        //Invoke to set theme
+        (function setTheme() {
+            if (localStorage.getItem('theme') === 'themeDark') {
+                setTheme('themeLight');
+                document.getElementById("lightIcon").style.visibility = "hidden";
+                document.getElementById("darkIcon").style.visibility = "visible";
+            } else {
+                setTheme('themeLight');
+                document.getElementById("lightIcon").style.visibility = "hidden";
+                document.getElementById("darkIcon").style.visibility = "visible";
+            }
+        })();
+    </script>
     <body>
         <ul class="menu">
             <li class="links">
@@ -90,6 +172,9 @@ p {
                 </a>
             </li>
         </ul>
+            <span class="material-icons-outlined" id="lightIcon" onclick="changeTheme()">light_mode</span>
+            <span class="material-icons-outlined" id="darkIcon" onclick="changeTheme()">dark_mode</span>
+        
         <center>
             <h1>
                 <u>
@@ -115,8 +200,19 @@ The small number of basic origami folds can be combined in a variety of ways to 
                 <center>
                     <span>
                         <p class="start">Videos- </p>
-                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/KfnyopxdJXQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=KfnyopxdJXQ">Watch on YouTube...</a></p></div>
-                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/6QqBvy_yO_M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=6QqBvy_yO_M">Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/KfnyopxdJXQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=KfnyopxdJXQ" target="_blank" rel="noopener noreferrer">Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/6QqBvy_yO_M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=6QqBvy_yO_M" target="_blank" rel="noopener noreferrer">Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/mPVefDuGRkA?list=PLBuR_wjBZR352J5CDO1wyn1E5p9bY1jql" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=mPVefDuGRkA?list=PLBuR_wjBZR352J5CDO1wyn1E5p9bY1jql" target="_blank" rel="noopener noreferrer" >Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/CDmFddQdFAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=CDmFddQdFAw" target="_blank" rel="noopener noreferrer">Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/-bP8IPpWWY8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=-bP8IPpWWY8" target="_blank" rel="noopener noreferrer">Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/qXFbqEigSVE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=qXFbqEigSVE" target="_blank" rel="noopener noreferrer">Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/scWQEsJ0s-c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=scWQEsJ0s-c" target="_blank" rel="noopener noreferrer">Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/9vHjIwBj2Sk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=9vHjIwBj2Sk" target="_blank" rel="noopener noreferrer">Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/BAlWZGW4lZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=BAlWZGW4lZY" target="_blank" rel="noopener noreferrer">Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/w7I2jfZ55AA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=w7I2jfZ55AA" target="_blank" rel="noopener noreferrer">Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/LKAnoyxzafo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=LKAnoyxzafo" target="_blank" rel="noopener noreferrer">Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/040TA2ycy-k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=040TA2ycy-k" target="_blank" rel="noopener noreferrer">Watch on YouTube...</a></p></div>
+                        <div> <iframe width="1280" height="720" src="https://www.youtube.com/embed/WF592QnADSA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <p><a class="rm" href="https://www.youtube.com/watch?v=WF592QnADSA" target="_blank" rel="noopener noreferrer">Watch on YouTube...</a></p></div>
                     </span>
                 </center>
             </div>
@@ -180,7 +276,4 @@ The small number of basic origami folds can be combined in a variety of ways to 
             </div>
         </section>
     </body>
-    <script>
-        (function(w, d) { w.CollectId = "61c5d2a5b104f43d8bab2372"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);
-    </script>
 </html>
